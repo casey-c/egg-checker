@@ -25,17 +25,13 @@ Checker::Checker(QString in)
         if (curr.isDigit())
         {
             count += (curr.digitValue() - 1);
-            ++depth;
+            depths.push_back(depth++);
         }
         else
         {
             --count;
-            --depth;
+            depths.push_back(depth--);
         }
-
-        //qDebug() << "Pushing back depth " << depth;
-
-        depths.push_back(depth);
     }
 
     wellFormed = (count == 0);
@@ -46,10 +42,9 @@ Checker::Checker(QString in)
  */
 void Checker::printDepths()
 {
-    qDebug() << "Printing depths for " << original;
-    for (int i = 0; i < depths.size(); ++i)
-    {
-        qDebug() << "depths[" << i << "] = " << depths[i];
-    }
+    qDebug() << "Printing depths for: ";
+    qDebug().noquote() << original;
 
+    for (int i = 0; i < depths.size(); ++i)
+        qDebug() << original[i] << "=" << depths[i];
 }
