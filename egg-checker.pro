@@ -25,9 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    checker.cpp
+    proof.cpp \
+    line.cpp
 
 HEADERS  += mainwindow.h \
-    checker.h
+    proof.h \
+    line.h
 
 FORMS    += mainwindow.ui
